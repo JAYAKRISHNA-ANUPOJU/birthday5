@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Dharani ❤️</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    height: 100vh;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+}
+
+.intro img {
+    width: 220px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.intro p {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.card {
+    display: none;
+    background: rgba(255,255,255,0.97);
+    padding: 42px 40px;
+    border-radius: 28px;
+    text-align: center;
+    width: 96%;
+    max-width: 650px;
+    box-shadow: 0 28px 55px rgba(0,0,0,0.3);
+    animation: pop 1.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+h1, h5 {
+    color: #ff4b6e;
+    margin-bottom: 18px;
+    animation: glow 2s infinite alternate;
+    white-space: nowrap;
+}
+
+h1 {
+    font-size: clamp(21px, 4vw, 28px);
+}
+
+h5 {
+    font-size: 16px;
+    margin-top: 22px;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 6px #ff8fa3; }
+    to { text-shadow: 0 0 16px #ff4b6e; }
+}
+
+/* ✅ UPDATED HERE */
+.quote {
+    font-size: 16px;
+    color: #444;
+    margin: 20px 0;
+    line-height: 1.35;     /* reduced line spacing */
+    text-align: center;
+}
+
+.quote p {
+    margin-bottom: 0;     /* no space after each line */
+}
+
+.sign {
+    margin-top: 18px;
+    color: #ff4b6e;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.counter {
+    margin-top: 22px;
+    font-weight: bold;
+    color: #333;
+    background: #ffe6ec;
+    padding: 18px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.heart {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+    opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before { top: -8px; left: 0; }
+.heart::after { left: -8px; top: 0; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 26px;
+    background: #ff4b6e;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff2f55;
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="intro" id="intro">
+   <img src="birthday.gif" onclick="openLove()" />
+    <p>Tap the Happy birthday Wishes Bangaram  💖</p>
+</div>
+
+<div class="card" id="card">
+    <h1>❤️ Advance Happy Birthday Bangaram ❤️</h1>
+
+    <div class="quote">
+        <p>Dharani, you changed my life in the most beautiful way.</p>
+        <p>You helped me control my anger, removed my fears.</p>
+        <p>Gave peace to my heart. You are my strength and always stand by me. </p>
+        <p>No matter what, Even when I was at my lowest.</p>
+        <p> You loved me without conditions.</p> <p>You believed in me when I didn’t believe in myself.</p>
+        <p>With you every moment feels beautiful,<br> Every day feels special,& every dream feels possible.</p>
+        <p>Thank you for coming into my life, Pottamma.</p>
+        <p>I love you, Bangaram 💕</p>
+    </div>
+
+    <div class="sign">Yours lovingly, Krishuuuu 💖</div>
+
+    <h5>❤️ Once Again Advance Happy Birthday Bangaram ❤️</h5>
+
+    <div class="counter" id="counter"></div>
+
+    <button onclick="changeQuote()">Show Another Wish 💌</button>
+</div>
+
+<script>
+function openLove() {
+    window.location.href = window.location.pathname + "?open=true";
+}
+
+const params = new URLSearchParams(window.location.search);
+if (params.get("open") === "true") {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("card").style.display = "block";
+}
+
+const birthday = new Date("April 6, 2026 00:00:00");
+
+function updateCounter() {
+    const now = new Date();
+    let diff = birthday - now;
+    const d = Math.abs(diff);
+
+    const days = Math.floor(d / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((d / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((d / (1000 * 60)) % 60);
+    const seconds = Math.floor((d / 1000) % 60);
+
+    document.getElementById("counter").innerHTML =
+        diff > 0
+        ? `Your birthday is coming in:<br>${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds 💖`
+        : `Since your birthday, my love:<br>${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds 💕`;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+const quotes = [
+    "You are my today and all of my tomorrows. 💖",
+    "Every smile of yours makes my world brighter. 🌸",
+    "Loving you is the best thing that ever happened to me. ❤️",
+    "My heart chose you, and it will choose you forever. 💞",
+    "You are my dream, my love, my Dharani. 🌹"
+];
+
+function changeQuote() {
+    document.querySelector(".quote").innerHTML =
+        `<p>${quotes[Math.floor(Math.random() * quotes.length)]}</p>`;
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
